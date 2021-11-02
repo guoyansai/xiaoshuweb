@@ -8,5 +8,44 @@
   </head>
   <body>
     <h1>欢迎光临小树主页</h1>
+    <h2>1. 计算器DEMO</h2>
+    <input name="a" id="a" value="1" />
+    <select name="x" id="x">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">×</option>
+      <option value="/">÷</option>
+    </select>
+    <input name="b" id="b" value="1" />
+    =
+    <input name="c" id="c" value="" />
+    <br />
+    <button onclick="doCount()">点击计算</button>
+    <script>
+      function doCount() {
+        var va = Number(a.value);
+        var vb = Number(b.value);
+        var vx = x.value;
+        if (typeof va !== "number") {
+          a.value = "错误：仅限输入数字";
+        } else if (typeof vb !== "number") {
+          b.value = "错误：仅限输入数字";
+        } else {
+          if (vx === "+") {
+            c.value = va + vb;
+          } else if (vx === "-") {
+            c.value = va - vb;
+          } else if (vx === "*") {
+            c.value = va * vb;
+          } else if (vx === "/") {
+            if (vb === 0) {
+              c.value = "错误：0不能为被除数";
+            } else {
+              c.value = va / vb;
+            }
+          }
+        }
+      }
+    </script>
   </body>
 </html>
